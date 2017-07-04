@@ -20,7 +20,8 @@ class BackgroundTimer {
 				else {
 					RNBackgroundTimer.setTimeout(id, this.callbacks[id].timeout);
 				}
-				callback();
+				const cb = callback();
+				if (typeof cb === 'function') cb(id);
 			}
 		});
 	}
